@@ -1,0 +1,24 @@
+@import "../Styles/variables.scss";
+
+html {
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: $color-bg-main;
+  font-family: $font-OpenSans;
+  color: $colorWhite;
+}
+
+a {
+  color: $colorWhite;
+  text-decoration: none;
+}
+
+main {
+    max-width: 1120px;
+    margin: 0 auto;
+}
