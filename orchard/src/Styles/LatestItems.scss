@@ -1,5 +1,60 @@
 @import "../Styles/variables.scss";
 
-h3 {
-  font-weight: 300;
+#latestItemsContainer {
+
+    margin-top: $spacing-l;
+
+    h2.title {
+        font-family: $font-OpenSans;
+        font-weight: 300;
+        font-size: 18;
+        margin-bottom: $spacing-m;
+    }
+    
+    .col-md {
+        margin-bottom: $spacing-m;
+    }
+ 
+    img {
+        border-bottom: 3px solid $colorRed;
+        margin-bottom: 1.5em;
+    }
+
+    h3.title {
+        font-weight: 500;
+        font-size: 14px;
+      }
+      
+      p.description {
+        font-family: $font-OpenSans;
+        font-weight: 300;
+        font-size: 14px;
+        color: $colorGray;
+        line-height: 21px;
+      }
+      
+      a.link {
+        position: relative;
+        font-size: 14px;
+      }
+      
+      a.link:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1px;
+        left: 0;
+        bottom: -5px;
+        background-color: $colorRed;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+      }
+      
+      a.link:hover:before {
+        width: 0;
+      }
 }
+

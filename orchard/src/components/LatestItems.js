@@ -101,7 +101,7 @@ class LatestItems extends Component {
 
     return (
       <Container id="latestItemsContainer">
-        <h2 className="text-center">{heading}</h2>
+        <h2 className="text-center title">{heading}</h2>
         <Row>
           {latestItems.map(item => (
             <Col md key={item.id} className={loading ? "loading-animation" : ""}>
@@ -111,9 +111,9 @@ class LatestItems extends Component {
                 <Image src={item.image.src} alt={item.image.alt} fluid />
               </picture>
               
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <a href={item.link}>{item.linKTitle}</a>
+              <h3 class="title">{item.title}</h3>
+              <p class="description">{item.description}</p>
+              <a href={item.link} class="link">{item.linKTitle}</a>
             </Col>
           ))}
         </Row>
