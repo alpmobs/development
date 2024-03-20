@@ -4,7 +4,7 @@ import Image from "react-bootstrap/Image";
 
 const ModalComponent = ({ show, onHide, image }) => {
   return (
-    <Modal show={show} onHide={onHide}>
+    <Modal className="" show={show} onHide={onHide} centered>
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <picture>

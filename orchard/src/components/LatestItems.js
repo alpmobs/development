@@ -105,15 +105,16 @@ class LatestItems extends Component {
         <Row>
           {latestItems.map(item => (
             <Col md key={item.id} className={loading ? "loading-animation" : ""}>
+              
               <picture>
                 <source srcSet={item.image.srcSet} media={item.image.media} />
                 <source srcSet={item.image.srcSet2x} media={item.image.media2x} />
-                <Image src={item.image.src} alt={item.image.alt} fluid />
+                <Image src={item.image.src} alt={item.image.alt} fluid className={loading ? "slide-up-animation" : ""} />
               </picture>
               
-              <h3 class="title">{item.title}</h3>
-              <p class="description">{item.description}</p>
-              <a href={item.link} class="link">{item.linKTitle}</a>
+              <h3 className={`title ${loading ? "slide-up-animation" : ""}`}>{item.title}</h3>
+              <p className={`description ${loading ? "slide-up-animation" : ""}`}>{item.description}</p>
+              <a href={item.link} className={`link ${loading ? "slide-up-animation" : ""}`}>{item.linKTitle}</a>
             </Col>
           ))}
         </Row>

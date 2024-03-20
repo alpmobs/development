@@ -1,0 +1,80 @@
+@import "../Styles/variables.scss";
+
+#heroBanner {
+  margin-top: $spacing-s;
+  margin-bottom: $spacing-s;
+
+  @media (min-width: 769px) {
+    margin-top: $spacing-l * 2;
+    margin-bottom: $spacing-m * 2;
+  }
+
+  .col-md {
+    margin-bottom: $spacing-s;
+    @media (min-width: 769px) {
+      margin-bottom: $spacing-m;
+    }
+
+    &:nth-child(2) {
+      aside {
+        margin-bottom: $spacing-s;
+
+        @media (min-width: 769px) {
+          margin-bottom: calc(#{$spacing-xs} + 2px);
+        }
+      }
+
+      .row > .row {
+        margin: 0;
+      }
+    }
+  }
+
+  article {
+    margin-bottom: $spacing-s;
+    &:first-child {
+      margin-bottom: $spacing-m;
+      h3.title {
+        font-size: 20px;
+        font-weight: 300;
+        position: relative;
+        margin-bottom: $spacing-m;
+      }
+
+      h3.title:before {
+        content: "";
+        left: 0;
+        bottom: -15px;
+        display: block;
+        position: absolute;
+        width: 100%;
+        background-color: $colorWhite;
+        height: 1px;
+      }
+
+      p.description {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+    }
+
+    &:last-child {
+      h3.title {
+        color: $colorRed;
+        font-size: 13px;
+        margin-bottom: $spacing-xs;
+      }
+
+      p.description {
+        font-weight: 500;
+        line-height: 1.8;
+        font-size: 15px;
+      }
+    }
+  }
+
+  img {
+    cursor: pointer;
+  }
+}
