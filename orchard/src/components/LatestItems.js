@@ -23,6 +23,10 @@ class LatestItems extends Component {
     anchorElements.forEach(anchor => {
       anchor.addEventListener('click', this.handleAnchorClick);
     });
+
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, 5000); 
   }
 
   componentWillUnmount() {
@@ -34,7 +38,7 @@ class LatestItems extends Component {
 
   handleAnchorClick = (event) => {
     event.preventDefault();
-    console.log("Clicked element:", event.target);
+    console.log("Clicked item:", event.target);
   }
 
   state = {
@@ -43,7 +47,9 @@ class LatestItems extends Component {
         id: 1,
         image: {
           srcSet: "./assets/images/component-02/Image-01.jpg",
+          srcSet2x: "./assets/images/component-02/Image-01@2x.jpg",
           media: "(max-width: 380px)",
+          media2x: "(min-width: 381px)",
           alt: "Component 2 - Image 1",
           src: "./assets/images/component-02/Image-01.jpg"
         },
@@ -57,7 +63,9 @@ class LatestItems extends Component {
         id: 2,
         image: {
           srcSet: "./assets/images/component-02/Image-02.jpg",
+          srcSet2x: "./assets/images/component-02/Image-02@2x.jpg",
           media: "(max-width: 380px)",
+          media2x: "(min-width: 381px)",
           alt: "Component 2 - Image 2",
           src: "./assets/images/component-02/Image-02.jpg"
         },
@@ -71,7 +79,9 @@ class LatestItems extends Component {
         id: 3,
         image: {
           srcSet: "./assets/images/component-02/Image-03.jpg",
+          srcSet2x: "./assets/images/component-02/Image-03@2x.jpg",
           media: "(max-width: 380px)",
+          media2x: "(min-width: 381px)",
           alt: "Component 2 - Image 3",
           src: "./assets/images/component-02/Image-03.jpg"
         },
@@ -81,23 +91,26 @@ class LatestItems extends Component {
         link: "#",
         linKTitle: "READ MORE"
       }
-    ]
+    ],
+    loading: true
   };
 
   render() {
     const { heading } = this.props;
-    const { latestItems } = this.state;
+    const { latestItems, loading } = this.state;
 
     return (
       <Container id="latestItemsContainer">
         <h2 className="text-center">{heading}</h2>
         <Row>
           {latestItems.map(item => (
-            <Col md key={item.id}>
+            <Col md key={item.id} className={loading ? "loading-animation" : ""}>
               <picture>
                 <source srcSet={item.image.srcSet} media={item.image.media} />
+                <source srcSet={item.image.srcSet2x} media={item.image.media2x} />
                 <Image src={item.image.src} alt={item.image.alt} fluid />
               </picture>
+              
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               <a href={item.link}>{item.linKTitle}</a>
