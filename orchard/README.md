@@ -1,4 +1,4 @@
-# Orchard Exam
+# Skills Test - Frontend Developer
 
 I chose to use the React framework to try to expand my knowledge with the integration of SASS and Bootstrap. 
 
