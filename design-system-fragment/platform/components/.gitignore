@@ -1,9 +1,0 @@
-# misc
-.npm
-.npmrc
-
-# dependencies
-node_modules
-
-# auto generated files
-dist

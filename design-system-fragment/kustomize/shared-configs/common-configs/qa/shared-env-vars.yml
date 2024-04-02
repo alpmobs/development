@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: shared-env-vars
-data:
-  IPLOOKUP_APP_URL: http://freespin-iplookup-svc-app:8080

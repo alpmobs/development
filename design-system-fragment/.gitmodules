@@ -1,3 +1,0 @@
-[submodule "kustomize/shared-configs"]
-	path = kustomize/shared-configs
-	url = ../core-platform-devops/kustomize-base.git

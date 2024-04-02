@@ -1,1 +1,0 @@
-# Common config for Freespin applications (i.e. stuff part of FreespinPlatform or apps that was once part of it)

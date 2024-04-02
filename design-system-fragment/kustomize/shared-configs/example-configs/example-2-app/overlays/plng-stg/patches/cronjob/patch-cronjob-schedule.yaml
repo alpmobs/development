@@ -1,7 +1,0 @@
-kind: CronJob
-apiVersion: batch/v1
-metadata:
-  name: task
-spec:
-  # Update this with the actual cron schedule
-  schedule: '5 0 1 * *'

@@ -1,6 +1,0 @@
-kind: CronJob
-apiVersion: batch/v1
-metadata:
-  name: task-1
-spec:
-  schedule: '5 0 1 * *'
