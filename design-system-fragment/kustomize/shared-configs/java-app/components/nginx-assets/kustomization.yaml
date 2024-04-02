@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - volumes.yaml
+
+patchesStrategicMerge:
+  - patch-add-content-volumes.yaml
+
+configMapGenerator:
+  - name: nginx-conf
+    files:
+      - config/nginx.conf
+      - config/assets_cdn.conf
+      - config/worker_parameters.conf
+  - name: nginx-sites-enabled
+    files:
+      - config/sites-enabled/8080_server-status.conf
+      - config/sites-enabled/8081_assets_cdn.conf

@@ -1,0 +1,25 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namePrefix: example-4-
+
+resources:
+  - ../../base
+  - resources/sealed-secrets.yaml
+
+commonLabels:
+  gamesys.com/deployable: example-4-app-cron
+
+patchesStrategicMerge:
+  - patches/cronjob/patch-cronjob-configmap.yaml
+  - patches/cronjob/patch-cronjob-env-vars.yaml
+  - patches/cronjob/patch-cronjob-resources.yaml
+  - patches/cronjob/patch-cronjob-schedule.yaml
+
+configMapGenerator:
+  - name: app-config
+    files:
+       - configmaps/application-stg-k8s.yaml
+
+namespace: plng-stg-backend

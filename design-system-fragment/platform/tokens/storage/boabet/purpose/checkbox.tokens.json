@@ -1,0 +1,125 @@
+{
+  "checkbox": {
+    "border": {
+      "width": {
+        "value": "{border.width.regular}"
+      },
+      "style": {
+        "value": "{border.style.solid}"
+      },
+      "radius": {
+        "s": {
+          "value": "{border.radius.xs}"
+        },
+        "l": {
+          "value": "{border.radius.xs}"
+        }
+      },
+      "color": {
+        "default": {
+          "value": "{color.secondary.600}"
+        },
+        "checked": {
+          "default": {
+            "value": "{color.primary.500}"
+          },
+          "disabled": {
+            "value": "{color.primary.100}"
+          }
+        },
+        "disabled": {
+          "value": "{color.neutral.200}"
+        },
+        "error": {
+          "value": "{color.signal.1100}"
+        }
+      }
+    },
+
+    "background": {
+      "color": {
+        "default": {
+          "value": null
+        },
+        "checked": {
+          "default": {
+            "value": "{color.primary.500}"
+          },
+          "disabled": {
+            "value": "{color.primary.100}"
+          }
+        },
+        "disabled": {
+          "value": null
+        },
+        "error": {
+          "value": null
+        }
+      }
+    },
+
+    "checkmark": {
+      "color": {
+        "default": {
+          "value": "{color.neutral.white}"
+        },
+        "checked": {
+          "default": {
+            "value": "{color.neutral.white}"
+          },
+          "disabled": {
+            "value": "{color.neutral.white}"
+          }
+        },
+        "disabled": {
+          "value": "{color.neutral.white}"
+        },
+        "error": {
+          "value": "{color.neutral.white}"
+        }
+      },
+      "border": {
+        "width": {
+          "s": {
+            "value": "{border.width.regular}"
+          },
+          "l": {
+            "value": "{border.width.regular}"
+          }
+        }
+      }
+    },
+
+    "container": {
+      "border": {
+        "radius": {
+          "value": "{border.radius.s}"
+        }
+      },
+      "padding": {
+        "value": "{size.8}"
+      }
+    },
+
+    "box": {
+      "shadow": {
+        "default": {
+          "s": {
+            "value": null
+          },
+          "l": {
+            "value": null
+          }
+        },
+        "checked": {
+          "s": {
+            "value": null
+          },
+          "l": {
+            "value": null
+          }
+        }
+      }
+    }
+  }
+}

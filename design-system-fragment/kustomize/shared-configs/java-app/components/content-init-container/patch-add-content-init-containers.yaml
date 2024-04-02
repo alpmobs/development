@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-content
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: init-content
+          image: registry-mt1.enjoy-platform.net/base-images/alpine:3.10.3
+          command:
+            - sh
+            - /scripts/content-deploy.sh
+          env:
+            - name: VOLUME_DIR
+              value: content
+            - name: CONFIG_MAP_NAME
+              value: nginx-init-content-config
+            - name: SECRET_NAME
+              value: git-private-token
+          envFrom:
+            - configMapRef:
+                name: nginx-init-content-config
+            - secretRef:
+                name: git-private-token
+          volumeMounts:
+            - name: scripts
+              mountPath: /scripts
+            - name: content
+              mountPath: /content
+          resources:
+            limits:
+              cpu: 200m
+              memory: 400M
+            requests:
+              cpu: 50m
+              memory: 50M

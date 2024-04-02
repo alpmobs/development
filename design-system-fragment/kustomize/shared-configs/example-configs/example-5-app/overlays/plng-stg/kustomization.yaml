@@ -1,0 +1,42 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namePrefix: example-5-
+
+resources:
+  - ../../base
+  - resources/ingress.yaml
+
+commonLabels:
+  gamesys.com/deployable: example-5-app
+
+patchesStrategicMerge:
+  - patches/app/patch-deployment-additional.yaml
+  - patches/app/patch-deployment-affinity.yaml
+  - patches/app/patch-deployment-configmap.yaml
+  - patches/app/patch-deployment-env-vars.yaml
+  - patches/app/patch-deployment-resources.yaml
+  - patches/app/patch-deployment-readiness.yaml
+
+patches:
+- patch: |-
+    - op: add
+      path: /metadata/labels/isMonitored
+      value: monitored
+  target:
+    kind: Service
+    version: v1
+    name: app-svc
+
+configMapGenerator:
+  - name: app-config
+    files:
+       - configmaps/application-stg-k8s.yaml
+  # Changes for environment specific artefact name
+  - name: nginx-init-content-config
+    behavior: merge
+    literals:
+      - ARTEFACT_NAME=plng-stg-translations
+
+namespace: plng-stg-backend

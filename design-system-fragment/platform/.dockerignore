@@ -1,0 +1,11 @@
+# START tokens directory
+# Directories
+node_modules
+dist
+nginx
+
+# Files
+tokens/.eslint*
+tokens/.gitignore
+Dockerfile*
+# END tokens directory

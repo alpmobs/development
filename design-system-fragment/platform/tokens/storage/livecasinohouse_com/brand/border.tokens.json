@@ -1,0 +1,56 @@
+{
+  "border": {
+    "group": "base",
+    "width": {
+      "group": "modifier",
+      "hairline": {
+        "value": "1px"
+      },
+      "regular": {
+        "value": "2px"
+      },
+      "medium": {
+        "value": "3px"
+      },
+      "fat": {
+        "value": "4px"
+      },
+      "chunky": {
+        "value": "8px"
+      }
+    },
+    "style": {
+      "group": "modifier",
+      "solid": {
+        "value": "solid"
+      },
+      "dotted": {
+        "value": "dotted"
+      },
+      "dashed": {
+        "value": "dashed"
+      },
+      "none": {
+        "value": "none"
+      }
+    },
+    "radius": {
+      "group": "modifier",
+      "none": {
+        "value": "0px"
+      },
+      "s": {
+        "value": "2px"
+      },
+      "m": {
+        "value": "5px"
+      },
+      "l": {
+        "value": "8px"
+      },
+      "circle": {
+        "value": "100%"
+      }
+    }
+  }
+}

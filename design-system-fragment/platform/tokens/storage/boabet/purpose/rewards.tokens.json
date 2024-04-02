@@ -1,0 +1,16 @@
+{
+  "rewards": {
+    "group": "object",
+    "card": {
+      "color": {
+        "group": "base",
+        "text": {
+          "primary": {
+            "group": "modifier",
+            "value": "{color.secondary.600}"
+          }
+        }
+      }
+    }
+  }
+}

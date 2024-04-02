@@ -1,0 +1,13 @@
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: app-ingress
+spec:
+  rules:
+    - host: example-3-app-plng-stg-backend.mt1-test.enjoy-platform.local
+      http:
+        paths:
+        - backend:
+            serviceName: app-svc
+            servicePort: 8080

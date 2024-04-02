@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../java-app/base
+  - cron-1/
+  - cron-2/
+
+commonLabels:
+  app: example-3-app
+
+patchesStrategicMerge:
+  - patch-deployment-images.yaml
+  - patch-cron-1-images.yaml
+  - patch-cron-2-images.yaml

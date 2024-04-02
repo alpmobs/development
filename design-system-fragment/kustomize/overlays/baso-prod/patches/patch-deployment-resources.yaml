@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fragment
+spec:
+  template:
+    spec:
+      containers:
+      - resources:
+          limits:
+            memory: 430M
+          requests:
+            cpu: 100m
+            memory: 215M
+        name: nginx

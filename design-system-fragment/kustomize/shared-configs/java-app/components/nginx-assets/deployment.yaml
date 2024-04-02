@@ -1,0 +1,83 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: nginx-assets
+spec:
+  selector:
+    matchLabels:
+      gamesys.com/component: nginx-assets
+  template:
+    metadata:
+      labels:
+        gamesys.com/component: nginx-assets
+    spec:
+      containers:
+      - name: nginx-assets
+        image: registry-mt1.enjoy-platform.net/base-images/nginx:1.25
+        ports:
+          - containerPort: 8080
+            name: health
+          - containerPort: 8081
+            name: web
+        livenessProbe:
+          httpGet:
+            path: /nginx_status
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 3
+          periodSeconds: 10
+          failureThreshold: 3
+          timeoutSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /nginx_status
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 3
+          periodSeconds: 10
+          failureThreshold: 3
+          timeoutSeconds: 3
+        resources:
+          limits:
+            cpu: 100m
+            memory: 150M
+          requests:
+            cpu: 50m
+            memory: 50M
+        volumeMounts:
+          - mountPath: /etc/nginx/sites-enabled
+            name: nginx-sites-enabled
+          - mountPath: /etc/nginx/nginx.conf
+            name: nginx-conf
+            subPath: nginx.conf
+          - mountPath: /etc/nginx/assets_cdn.conf
+            name: nginx-conf
+            subPath: assets_cdn.conf
+          - mountPath: /etc/nginx/worker_parameters.conf
+            name: nginx-conf
+            subPath: worker_parameters.conf
+          - mountPath: /mnt/shared
+            name: nginx-persistent-storage
+          - mountPath: /var/log/nginx
+            name: var-log-nginx-emptydir
+          - mountPath: /var/cache/nginx
+            name: var-cache-nginx-emptydir
+      volumes:
+        - emptyDir: {}
+          name: var-cache-nginx-emptydir
+        - emptyDir: {}
+          name: var-log-nginx-emptydir
+        - configMap:
+            name: nginx-sites-enabled
+          name: nginx-sites-enabled
+        - configMap:
+            name: nginx-conf
+          name: nginx-conf
+        - persistentVolumeClaim:
+            claimName: app
+            readOnly: true
+          name: nginx-persistent-storage
+      automountServiceAccountToken: false
+      dnsConfig:
+        options:
+          - name: edns0

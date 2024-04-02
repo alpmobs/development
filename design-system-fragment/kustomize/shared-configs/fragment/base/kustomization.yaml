@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yaml
+  - service.yaml
+
+# nginx and php-fpm configs are mostly common between the fragments
+# so let's put those in the base.
+configMapGenerator:
+  - name: fragment-nginx-conf
+    files:
+      - config/nginx/nginx.conf
+      - config/nginx/php.conf
+      - config/nginx/worker_parameters.conf
+  - name: fragment-nginx-sites-enabled
+    files:
+      - config/nginx/sites-enabled/8080_server-status.conf
+      - config/nginx/sites-enabled/8081_fragments.conf
+  - name: fragment-php-conf
+    files:
+      - config/php/php-fpm.conf
+      - config/php/php.ini
+  - name: fragment-php-fpmd
+    files:
+      - config/php/pool.d/www.conf

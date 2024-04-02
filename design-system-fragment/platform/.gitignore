@@ -1,0 +1,11 @@
+# misc
+.npm
+.npmrc
+reports
+
+# dependencies
+node_modules
+
+# auto generated files
+dist
+nginx

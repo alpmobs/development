@@ -1,0 +1,24 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: task
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - env:
+              ########################################################################
+              # Always include the following env vars with their proper values
+              - name: APP_ENV
+                value: stg
+              - name: SPRING_CONFIG_LOCATION
+                value: classpath:/application.yaml,/etc/config/application-stg-k8s.yaml
+              #########################################################################
+              - name: TEST_SECRET
+                valueFrom:
+                  secretKeyRef:
+                    name: example-4-app-secrets
+                    key: secret1
+            name: task

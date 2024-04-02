@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namePrefix: design-system-
+
+resources:
+  - ../../base
+  - resources/ingress.yaml
+
+commonLabels:
+  gamesys.com/deployable: design-system-fragment
+
+commonAnnotations:
+  collectord.io/logs-index: stg1_3s_rdge
+
+patchesStrategicMerge:
+  - patches/patch-deployment-additional.yaml
+  - patches/patch-deployment-affinity.yaml
+  - patches/patch-deployment-resources.yaml
+
+namespace: rdge-stg

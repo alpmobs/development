@@ -1,0 +1,17 @@
+{
+  "opacity": {
+    "group": "modifier",
+    "transparent": {
+      "value": "0"
+    },
+    "semi-opaque": {
+      "value": "0.5"
+    },
+    "somewhat-opaque": {
+      "value": "0.65"
+    },
+    "opaque": {
+      "value": "1"
+    }
+  }
+}

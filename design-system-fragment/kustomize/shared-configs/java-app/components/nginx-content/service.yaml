@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-content-svc
+spec:
+  ports:
+    - name: nginx
+      port: 8081
+      targetPort: 8081
+      protocol: TCP
+    - name: status
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    gamesys.com/component: nginx-content

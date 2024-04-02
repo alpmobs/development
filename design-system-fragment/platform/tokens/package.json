@@ -1,0 +1,30 @@
+{
+  "name": "@spark/tokens",
+  "description": "Contains all design tokens, these design tokens are the css variables",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "translate:tokens": "node transformer/translator/style-dictionary-build.js",
+    "build": "npm run translate:tokens && node esbuild.dev.js",
+    "build:watch": "npm run translate:tokens && node esbuild.watch.js",
+    "build:prod": "npm run translate:tokens && node esbuild.prod.js",
+    "lint": "eslint --ext .js,.json .",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "devDependencies": {
+    "@esm-bundle/chai": "^4.3.4-fix.0",
+    "esbuild": "^0.16.16",
+    "eslint": "^8.41.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsonc": "^2.8.0",
+    "glob": "^8.0.3",
+    "style-dictionary": "^3.7.2",
+    "tinycolor2": "^1.6.0"
+  },
+  "engines": {
+    "npm": ">=8.0.0 <10.0.0",
+    "node": ">=18.0.0 <19.0.0"
+  }
+}

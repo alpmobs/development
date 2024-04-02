@@ -1,0 +1,17 @@
+{
+  "svg": {
+    "group": "base",
+    "rotate": {
+      "value": "url(./images/icons/rotate.svg)"
+    },
+    "home": {
+      "value": "url(./images/icons/home.svg)"
+    },
+    "spinner": {
+      "value": "url(./images/icons/spinner.svg)"
+    },
+    "check": {
+      "value": "url(./images/icons/check.svg)"
+    }
+  }
+}

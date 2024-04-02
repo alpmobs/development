@@ -1,0 +1,15 @@
+# misc
+.npm
+.npmrc
+
+# dependencies
+node_modules
+
+# auto generated files
+dist
+assets/themes/*
+
+# not auto genererated files
+!assets/themes/**/styles.css
+!assets/themes/**/_fonts.css
+!assets/themes/**/images

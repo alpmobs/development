@@ -1,0 +1,35 @@
+{
+  "name": "design-system-spark",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A tool to align an organization around creating awesome experiences.",
+  "scripts": {
+    "build": "npm run build:tokens && npm run build:components",
+    "build:components": "npm --prefix ./components run build",
+    "build:tokens": "npm --prefix ./tokens run build",
+    "demo": "npm-run-all build --parallel demo:server demo:page",
+    "demo:page": "npm --prefix ./components run start",
+    "demo:server": "npm run nginx-conf && docker-compose -f ../docker/docker-compose.yml up",
+    "lint": "eslint --ext .js .",
+    "nginx-conf": "node generate-nginx-config.dev.js",
+    "nginx-conf:prod": "node generate-nginx-config.prod.js",
+    "start": "npm run build && npm run storybook",
+    "storybook": "npm --prefix ./components run storybook",
+    "test": "web-test-runner --coverage --debug --group",
+    "test:watch": "web-test-runner --coverage --debug --group --watch"
+  },
+  "author": "Design System Spark Team",
+  "devDependencies": {
+    "@web/dev-server": "^0.1.35",
+    "@web/dev-server-esbuild": "^0.3.3",
+    "@web/test-runner": "^0.15.3",
+    "@web/test-runner-junit-reporter": "^0.5.2",
+    "@web/test-runner-playwright": "^0.10.1",
+    "eslint": "^8.37.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.26.0",
+    "glob": "^10.2.2",
+    "npm-run-all": "^4.1.5"
+  }
+}

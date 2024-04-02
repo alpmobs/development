@@ -1,0 +1,186 @@
+{
+  "text": {
+    "group": "object",
+
+    "type": {
+      "size": {
+        "group": "base",
+        "heading": {
+          "group": "modifier",
+          "1": {
+            "value": "{typography.font.size.l}"
+          },
+          "2": {
+            "value": "{typography.font.size.m}"
+          },
+          "3": {
+            "value": "{typography.font.size.s}"
+          },
+          "4": {
+            "value": "{typography.font.size.s}"
+          },
+          "5": {
+            "value": "{typography.font.size.xs}"
+          },
+          "6": {
+            "value": "{typography.font.size.2xs}"
+          }
+        },
+        "paragraph": {
+          "group": "modifier",
+          "value": "{typography.font.size.s}"
+        },
+        "span": {
+          "group": "modifier",
+          "value": "{typography.font.size.s}"
+        },
+        "label": {
+          "group": "modifier",
+          "value": "{typography.font.size.s}"
+        }
+      },
+
+      "color": {
+        "group": "base",
+        "heading": {
+          "group": "modifier",
+          "1": {
+            "value": "{color.secondary.400}"
+          },
+          "2": {
+            "value": "{color.secondary.400}"
+          },
+          "3": {
+            "value": "{color.secondary.400}"
+          },
+          "4": {
+            "value": "{color.secondary.400}"
+          },
+          "5": {
+            "value": "{color.secondary.400}"
+          },
+          "6": {
+            "value": "{color.secondary.400}"
+          }
+        },
+        "paragraph": {
+          "group": "modifier",
+          "value": "{color.primary.400}"
+        },
+        "span": {
+          "group": "modifier",
+          "value": "{color.primary.400}"
+        },
+        "label": {
+          "group": "modifier",
+          "value": "{color.primary.400}"
+        }
+      }
+    },
+
+    "size": {
+      "group": "base",
+      "display": {
+        "group": "modifier",
+        "1": {
+          "value": "{typography.font.size.l}"
+        },
+        "2": {
+          "value": "{typography.font.size.xl}"
+        },
+        "3": {
+          "value": "{typography.font.size.2xl}"
+        },
+        "4": {
+          "value": "{typography.font.size.3xl}"
+        }
+      },
+      "body": {
+        "group": "modifier",
+        "1": {
+          "value": "{typography.font.size.3xs}"
+        },
+        "2": {
+          "value": "{typography.font.size.2xs}"
+        },
+        "3": {
+          "value": "{typography.font.size.xs}"
+        },
+        "4": {
+          "value": "{typography.font.size.s}"
+        },
+        "5": {
+          "value": "{typography.font.size.m}"
+        }
+      },
+      "small": {
+        "group": "modifier",
+        "1": {
+          "value": "{typography.font.size.3xs}"
+        },
+        "2": {
+          "value": "{typography.font.size.2xs}"
+        }
+      }
+    },
+
+    "color": {
+      "group": "modifier",
+      "primary": {
+        "value": "{color.secondary.400}"
+      },
+      "secondary": {
+        "value": "{color.primary.400}"
+      },
+      "label": {
+        "value": "{color.primary.400}"
+      },
+      "neutral": {
+        "value": "{color.neutral.400}"
+      },
+      "success": {
+        "value": "{color.signal.500}"
+      },
+      "warning": {
+        "value": "{color.signal.700}"
+      },
+      "error": {
+        "value": "{color.signal.1100}"
+      },
+      "subdued": {
+        "value": "{color.neutral.400}"
+      },
+      "contrast": {
+        "value": "{color.neutral.010}"
+      },
+      "emphasize-primary": {
+        "value": "null"
+      },
+      "emphasize-secondary": {
+        "value": "null"
+      }
+    },
+
+    "font": {
+      "family": {
+        "group": "modifier",
+        "primary": {
+          "value": "{typography.font.family.primary}"
+        },
+        "secondary": {
+          "value": "null"
+        }
+      },
+
+      "weight": {
+        "group": "modifier",
+        "regular": {
+          "value": "{typography.font.weight.regular}"
+        },
+        "bold": {
+          "value": "{typography.font.weight.bold}"
+        }
+      }
+    }
+  }
+}

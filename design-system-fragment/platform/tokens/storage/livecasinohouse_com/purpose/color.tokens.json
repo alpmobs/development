@@ -1,0 +1,11 @@
+{
+  "color": {
+    "group": "base",
+    "text": {
+      "primary": {
+        "group": "modifier",
+        "value": "{color.neutral.050}"
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+####################################################
+# Use node image, name it as `builder-image`
+####################################################
+FROM jfrog-mt1.gamesys.co.uk/enjoy-infrastructure-docker-release-local/node:18.14 as builder-image
+
+####################################################
+# Start working under `components`
+#
+# Use `builder-image` as installer for packages
+####################################################
+FROM builder-image as components-image
+
+WORKDIR /var/www/platform/components
+
+# Copy package.json and package-lock.json
+COPY ./components/package* ./
+# Install Node packages
+RUN npm ci --no-audit
+
+# Copy over all tokens source files
+# Will use .dockerignore to skip copying some files
+COPY ./components .
+# Build the tokens
+RUN npm run build:prod
+
+####################################################
+# Start working under `tokens`
+#
+# Use `builder-image` as installer for packages
+####################################################
+FROM builder-image as tokens-image
+
+WORKDIR /var/www/platform/tokens
+
+# Copy package.json and package-lock.json
+COPY ./tokens/package* ./
+# Install Node packages
+RUN npm ci --no-audit
+
+# Copy over all tokens source files
+# Will use .dockerignore to skip copying some files
+COPY ./tokens .
+# Build the tokens
+RUN npm run build:prod
+
+####################################################
+# Start working under `platform`
+#
+# Use `builder-image` as installer for packages
+####################################################
+FROM builder-image as platform-image
+
+WORKDIR /var/www/platform
+
+# Copy package.json and package-lock.json
+COPY ./package* ./
+# Install Node packages
+RUN npm ci --no-audit
+
+# Copy generate-nginx-config* files
+# Will use .dockerignore to skip copying some files
+COPY ./generate-nginx-config* ./
+# Copy all the compiled components
+COPY --from=components-image /var/www/platform/components/dist ./components/dist/
+# Copy all the stylesheet that contains all css custom properties aka "design-tokens" from `tokens-image`
+COPY --from=tokens-image /var/www/platform/tokens/dist ./tokens/dist/
+
+# Generate the nginx-configuration file
+RUN npm run nginx-conf:prod
+
+####################################################
+# Move to dedicated run image
+####################################################
+FROM jfrog-mt1.gamesys.co.uk/enjoy-base-docker-release-local/redhat-nginx:1.18
+
+# Copy all the compiled components
+COPY --from=components-image /var/www/platform/components/dist /opt/app-root/src/platform/components/dist/
+# Copy the tokens generated stylesheets
+COPY --from=tokens-image /var/www/platform/tokens/dist /opt/app-root/src/platform/tokens/dist/
+# Copy `sites-enabled` containing the generated `8081_fragment.conf`
+COPY --from=platform-image /var/www/platform/nginx/sites-enabled  /etc/nginx/fragment-sites-enabled/

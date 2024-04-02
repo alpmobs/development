@@ -1,0 +1,76 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: nginx-content
+spec:
+  selector:
+    matchLabels:
+      gamesys.com/component: nginx-content
+  template:
+    metadata:
+      labels:
+        gamesys.com/component: nginx-content
+    spec:
+      containers:
+      - name: nginx-content
+        image: registry-mt1.enjoy-platform.net/base-images/redhat-nginx:latest
+        ports:
+          - containerPort: 8080
+            name: health
+          - containerPort: 8081
+            name: web
+        livenessProbe:
+          httpGet:
+            path: /nginx_status
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 3
+          periodSeconds: 10
+          failureThreshold: 3
+          timeoutSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /nginx_status
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 3
+          periodSeconds: 10
+          failureThreshold: 3
+          timeoutSeconds: 3
+        resources:
+          limits:            
+            memory: 150M
+          requests:
+            cpu: 50m
+            memory: 50M
+        volumeMounts:
+          - mountPath: /etc/nginx/sites-enabled
+            name: nginx-sites-enabled
+          - mountPath: /etc/nginx/nginx.conf
+            name: nginx-conf
+            subPath: nginx.conf
+          - mountPath: /etc/nginx/content.conf
+            name: nginx-conf
+            subPath: content.conf
+          - mountPath: /etc/nginx/worker_parameters.conf
+            name: nginx-conf
+            subPath: worker_parameters.conf
+          - mountPath: /var/log/nginx
+            name: var-log-nginx-emptydir
+          - mountPath: /var/cache/nginx
+            name: var-cache-nginx-emptydir
+      volumes:
+        - emptyDir: {}
+          name: var-cache-nginx-emptydir
+        - emptyDir: {}
+          name: var-log-nginx-emptydir
+        - configMap:
+            name: nginx-sites-enabled
+          name: nginx-sites-enabled
+        - configMap:
+            name: nginx-conf
+          name: nginx-conf
+      automountServiceAccountToken: false
+      dnsConfig:
+        options:
+          - name: edns0

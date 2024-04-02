@@ -1,0 +1,19 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: task
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - resources:
+              # these are the default that we are usually applying to stg and prod
+                limits:
+                  cpu: 1
+                  memory: 2G
+                requests:
+                  cpu: 300m
+                  memory: 1G
+              name: task

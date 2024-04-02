@@ -1,0 +1,13 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: task-1
+spec:
+  jobTemplate:
+    metadata:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: task
+              image: example-3-app-cron-1

@@ -1,0 +1,18 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: task-1
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - env:
+              - name: APP_ENV
+                value: stg
+              - name: TZ
+                value: UTC
+              - name: SPRING_CONFIG_LOCATION
+                value: classpath:/application.yaml,/etc/config/application-stg-k8s.yaml
+            name: task

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fragment
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: init-translations-content
+          image: registry-mt1.enjoy-platform.net/base-images/alpine:3.10.3
+          command:
+            - sh
+            - /scripts/content-deploy.sh
+          env:
+            - name: VOLUME_DIR
+              value: translations
+            - name: CONFIG_MAP_NAME
+              value: fragment-init-translations-config
+            - name: SECRET_NAME
+              value: git-private-token
+          envFrom:
+            - configMapRef:
+                name: fragment-init-translations-config
+            - secretRef:
+                name: git-private-token
+          volumeMounts:
+            - name: scripts
+              mountPath: /scripts
+            - name: translations
+              mountPath: /translations
+          resources:
+            limits:
+              cpu: 200m
+              memory: 400M
+            requests:
+              cpu: 50m
+              memory: 50M

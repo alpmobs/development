@@ -1,0 +1,125 @@
+{
+  "checkbox": {
+    "border": {
+      "width": {
+        "value": "{border.width.regular}"
+      },
+      "style": {
+        "value": "{border.style.solid}"
+      },
+      "radius": {
+        "s": {
+          "value": "{border.radius.s}"
+        },
+        "l": {
+          "value": "{border.radius.s}"
+        }
+      },
+      "color": {
+        "default": {
+          "value": "{color.primary.800}"
+        },
+        "checked": {
+          "default": {
+            "value": "{color.primary.800}"
+          },
+          "disabled": {
+            "value": "{color.primary.800}"
+          }
+        },
+        "disabled": {
+          "value": "{color.primary.800}"
+        },
+        "error": {
+          "value": "{color.signal.1200}"
+        }
+      }
+    },
+
+    "background": {
+      "color": {
+        "default": {
+          "value": null
+        },
+        "checked": {
+          "default": {
+            "value": "{color.primary.800}"
+          },
+          "disabled": {
+            "value": "{color.primary.800}"
+          }
+        },
+        "disabled": {
+          "value": null
+        },
+        "error": {
+          "value": null
+        }
+      }
+    },
+
+    "checkmark": {
+      "color": {
+        "default": {
+          "value": "{color.neutral.010}"
+        },
+        "checked": {
+          "default": {
+            "value": "{color.neutral.010}"
+          },
+          "disabled": {
+            "value": "{color.neutral.010}"
+          }
+        },
+        "disabled": {
+          "value": "{color.neutral.010}"
+        },
+        "error": {
+          "value": "{color.signal.1200}"
+        }
+      },
+      "border": {
+        "width": {
+          "s": {
+            "value": "{border.width.medium}"
+          },
+          "l": {
+            "value": "{border.width.fat}"
+          }
+        }
+      }
+    },
+
+    "container": {
+      "border": {
+        "radius": {
+          "value": "{border.radius.m}"
+        }
+      },
+      "padding": {
+        "value": "{size.8}"
+      }
+    },
+
+    "box": {
+      "shadow": {
+        "default": {
+          "s": {
+            "value": null
+          },
+          "l": {
+            "value": null
+          }
+        },
+        "checked": {
+          "s": {
+            "value": null
+          },
+          "l": {
+            "value": null
+          }
+        }
+      }
+    }
+  }
+}

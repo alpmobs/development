@@ -1,0 +1,42 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: task
+  labels:
+    gamesys.com/component: task
+spec:
+  schedule: PATCH_ME
+  concurrencyPolicy: Forbid
+  suspend: false
+  jobTemplate:
+    metadata:
+      labels:
+        gamesys.com/component: task
+    spec:
+      template:
+        metadata:
+          labels:
+            gamesys.com/component: task
+        spec:
+          automountServiceAccountToken: false
+          dnsConfig:
+            options:
+              - name: edns0
+          containers:
+            - name: task
+              env:
+              - name: TZ
+                value: UTC
+              image: PATCH_ME
+              imagePullPolicy: IfNotPresent
+              resources:
+                requests:
+                  memory: 500M
+                  cpu: 10m
+                limits:
+                  memory: 1G
+                  cpu: 200m
+          restartPolicy: Never
+          terminationGracePeriodSeconds: 30
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1

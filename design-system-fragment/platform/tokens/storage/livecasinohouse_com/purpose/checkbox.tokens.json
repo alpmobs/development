@@ -1,0 +1,125 @@
+{
+  "checkbox": {
+    "border": {
+      "width": {
+        "value": "{border.width.regular}"
+      },
+      "style": {
+        "value": "{border.style.solid}"
+      },
+      "radius": {
+        "s": {
+          "value": "{border.radius.s}"
+        },
+        "l": {
+          "value": "{border.radius.s}"
+        }
+      },
+      "color": {
+        "default": {
+          "value": "{color.tertiary.400}"
+        },
+        "checked": {
+          "default": {
+            "value": "{color.tertiary.400}"
+          },
+          "disabled": {
+            "value": "{color.tertiary.400}"
+          }
+        },
+        "disabled": {
+          "value": "{color.tertiary.400}"
+        },
+        "error": {
+          "value": "{color.signal.800}"
+        }
+      }
+    },
+
+    "background": {
+      "color": {
+        "default": {
+          "value": "{color.neutral.050}"
+        },
+        "checked": {
+          "default": {
+            "value": "{color.tertiary.400}"
+          },
+          "disabled": {
+            "value": "{color.tertiary.400}"
+          }
+        },
+        "disabled": {
+          "value": "{color.neutral.050}"
+        },
+        "error": {
+          "value": "{color.neutral.050}"
+        }
+      }
+    },
+
+    "checkmark": {
+      "color": {
+        "default": {
+          "value": "{color.neutral.050}"
+        },
+        "checked": {
+          "default": {
+            "value": "{color.neutral.050}"
+          },
+          "disabled": {
+            "value": "{color.neutral.050}"
+          }
+        },
+        "disabled": {
+          "value": "{color.neutral.050}"
+        },
+        "error": {
+          "value": "{color.neutral.050}"
+        }
+      },
+      "border": {
+        "width": {
+          "s": {
+            "value": "{border.width.medium}"
+          },
+          "l": {
+            "value": "{border.width.fat}"
+          }
+        }
+      }
+    },
+
+    "container": {
+      "border": {
+        "radius": {
+          "value": "{border.radius.s}"
+        }
+      },
+      "padding": {
+        "value": "{size.8}"
+      }
+    },
+
+    "box": {
+      "shadow": {
+        "default": {
+          "s": {
+            "value": null
+          },
+          "l": {
+            "value": null
+          }
+        },
+        "checked": {
+          "s": {
+            "value": null
+          },
+          "l": {
+            "value": null
+          }
+        }
+      }
+    }
+  }
+}
